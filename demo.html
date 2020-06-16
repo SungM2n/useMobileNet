@@ -44,7 +44,7 @@
 
     function switchCameras(video, camera) {
       constraints.facingMode = camera;
-      video.applyConstraints(constraints);
+      navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
     }
     function handleSuccess(stream) {
       video.srcObject = stream;
